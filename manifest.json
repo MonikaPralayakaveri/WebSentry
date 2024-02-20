@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "Soter",
+	"name": "WebSentry",
 	"description": "Detecting and Blocking malicious IP",
 	"version": "1.16.1",
     "author": "github.com/CTA-G-16",
@@ -23,18 +23,18 @@
 	"permissions": [
 	   "webRequest",
 	   "webRequestBlocking",
-	   "<all_urls>", 
+	   "<all_urls>",
 	   "storage"
 	],
 	"options_ui": {
 		"page": "/html/options.html",
-		"chrome_style": true,
+		"chrome_style": false,
 		"open_in_tab": false
 	},
 	"web_accessible_resources": ["src/options/options.html"],
 	"browser_action": {
 		"default_icon": "/icon/blue(32).png",
 		"default_popup": "/html/popup.html",
-		"default_title": "Soter"
+		"default_title": "WebSentry"
 	}
 }

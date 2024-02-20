@@ -1,23 +1,67 @@
-*{
-	font-family: 'Dosis', sans-serif;
-	color:#0410b8e5;
+* {
+    font-family: 'Dosis', sans-serif;
+    color: #ffffff;
 }
 
-h1{
-	color:#28991d;
+h1 {
+    color: #28991d;
 }
 
-#content{
-	width:250px;
+#content {
+    width: 250px;
 }
 
-a{
-	text-decoration:none;
+button a {
+    text-decoration: none;
+    color: #ffffff; /* Set text color to white */
 }
-button{
-	width:200px;
-	font-size:15px;
+
+button {
+    padding: 7.5px 15px;
+    background-color: #2196F3; /* Set background color to blue */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 11.25px;
 }
-#rules{
-	text-decoration: underline;
+
+#rules {
+    text-decoration: underline;
 }
+
+.ip {
+    display: none; /* Hide the IP initially */
+	font-size: 15px;
+}
+
+.ip,
+.sub {
+    color: #000000; /* Set the text color of IP and sub element to black */
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    max-height: 80vh; /* Set the maximum height of the body to 80% of the viewport height */
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: -webkit-fill-available;
+	margin: 5px;
+	background: rgba(17, 25, 40, 0.75);
+	backdrop-filter: blur(16px);
+	border: 1px solid rgba(17, 25, 40, 0.375);
+	border-radius: 5px;
+	color: #ddd;
+  }
+  #footer {
+	text-align: center;
+  }
+
+  

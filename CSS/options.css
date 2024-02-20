@@ -1,33 +1,46 @@
-*{
-	font-family: 'Dosis', sans-serif;
-	color:#01ac78e5;
-}
-body{
-	overflow: hidden;
+* {
+    font-family: 'Dosis', sans-serif;
+    color: #01ac78e5;
 }
 
-#content{
-	overflow-y: scroll;
-	max-height: 400px;
+body {
+    overflow: hidden;
 }
 
-.delete{
-	color:#28991d;
-}
-textarea, .domain_regex{
-	font-family: sans-serif;
-	width: 100%;
-	border:1px solid #0410b8e5;
+#content {
+    overflow-y: scroll;
+    max-height: 400px;
 }
 
-a{
-	padding:3px;
-	border:1px solid #fff;
-	text-decoration:none;
-	color:#cccccc;
+.delete {
+    color: #28991d;
 }
 
-a:hover{
-	text-decoration:none;
-	color:#F4F4F4;
+textarea,
+.domain_regex {
+    font-family: sans-serif;
+    width: 100%;
+    border: 1px solid #0410b8e5;
+}
+
+a {
+    padding: 5px 10px; /* Apply the same padding as the popup button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #2196F3; /* Set the background color to blue */
+    font-size: 15px; /* Adjust font size */
+    margin-right: 10px; /* Add some spacing between buttons */
+}
+
+a:hover {
+    text-decoration: none;
+    color: #F4F4F4;
+    background-color: #1565C0; /* Change background color on hover */
+}
+
+#add, #save {
+    margin-top: 10px; /* Add margin to the top of buttons for spacing */
 }
