@@ -28,40 +28,31 @@ button {
 
 #rules {
     text-decoration: underline;
+    color: #2196F3; /* Set text color of "Help" to blue */
 }
 
 .ip {
     display: none; /* Hide the IP initially */
-	font-size: 15px;
+    font-size: 15px;
 }
 
 .ip,
 .sub {
-    color: #000000; /* Set the text color of IP and sub element to black */
-}
-
-body {
-    background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0;
-    max-height: 80vh; /* Set the maximum height of the body to 80% of the viewport height */
+    color: #000000; /* Set the text color of IP and sub-element to black */
 }
 
 footer {
-	position: fixed;
-	bottom: 0;
-	width: -webkit-fill-available;
-	margin: 5px;
-	background: rgba(17, 25, 40, 0.75);
-	backdrop-filter: blur(16px);
-	border: 1px solid rgba(17, 25, 40, 0.375);
-	border-radius: 5px;
-	color: #ddd;
-  }
-  #footer {
-	text-align: center;
-  }
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+    margin: 5px;
+    background: rgba(17, 25, 40, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(17, 25, 40, 0.375);
+    border-radius: 5px;
+    color: #ddd;
+}
 
-  
+#footer {
+    text-align: center;
+}
