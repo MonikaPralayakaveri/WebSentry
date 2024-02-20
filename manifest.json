@@ -2,8 +2,8 @@
 	"manifest_version": 2,
 	"name": "WebSentry",
 	"description": "Detecting and Blocking malicious IP",
-	"version": "1.0.1",
-    "author": "github.com/CTA-G-16",
+	"version": "1.1.0",
+    "author": "github.com/Midhilesh2003",
 	"background": {
 		"scripts": ["background.js","background1.js"],
 		"persistent": true
