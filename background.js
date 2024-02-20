@@ -35,7 +35,7 @@ function setColor(tabID){
 function matchingDomainRegex(access_url, url_regex){
 	var matching = false;
 	if(access_url.length > 0 && url_regex.length > 0){
-		if(url_regex.indexOf("http") === -1 && getHostFromURL("https://"+url_regex) === url_regex){ 
+		if(url_regex.indexOf("http") === -1 && getHostFromURL("https://"+url_regex) === url_regex){
 			/*checking host*/
 			url_regex = url_regex.replace(".","\\.");
 			url_regex = new RegExp("(http(s?))\:\/\/"+url_regex+"/.*","gi");
@@ -62,17 +62,17 @@ function matchingDomainRegex(access_url, url_regex){
 	return matching;
 }
 
-function isIP(ipaddress)   
-{  
- if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress))  
+function isIP(ipaddress)
+{
+ if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress))
   {
 	  return true;
   }else{
-	  return false;	
+	  return false;
   }
 }
 
-//----RECEIVE MESSAGES FROM UI 
+//----RECEIVE MESSAGES FROM UI
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
 	if (request.type === "update"){
@@ -91,12 +91,12 @@ var validateIP = function(details) {
 	//alert(stored_urls);
 	var stored_ips = localStorage.allowed_ips;
 	stored_ips = stored_ips.substring(0, stored_ips.length-1).split("|,");
-	
+
 	var shouldBlock = false;
 	var isDomain = false;
 	var domainIndex = -1;
-	
-	//check if access_url is one stored 
+
+	//check if access_url is one stored
 	for (var i = 0; i < stored_urls.length; i++) {
 		var domain_matches = matchingDomainRegex(access_url, stored_urls[i]);
 		if(domain_matches){
@@ -104,7 +104,7 @@ var validateIP = function(details) {
 			stored_ips = stored_ips[i].split(",");
 		}
 	}
-	
+
 	if(isDomain){
 		var request = new XMLHttpRequest();
 		request.open('GET', 'https://api.ipify.org', false);
@@ -115,7 +115,7 @@ var validateIP = function(details) {
 				alert("The tool used to get your public ip address did not return a valid IP address!\n\nValue returned: "+ user_ip+"\n\nPlease email max@maxis.me with the value returned. So sorry for the inconvenience!");
 				shouldBlock = true;
 			}
-			
+
 			for (var x = 0; x < stored_ips.length; x++) {
 				var ip = stored_ips[x];
 				var not = false;
@@ -123,13 +123,13 @@ var validateIP = function(details) {
 					ip = ip.substring(1, ip.length);
 					not = true;
 				}
-				
+
 				if(user_ip === ip){
 					shouldBlock = false;
 				}else{
 					shouldBlock = true;
 				}
-				
+
 				if(not){
 					shouldBlock = !shouldBlock;
 				}
@@ -139,9 +139,9 @@ var validateIP = function(details) {
 			shouldBlock = true;
 		}
 	}
-	
+
 	var this_tab_id = localStorage.current_tab_id;
-	
+
 	if(shouldBlock){
 		localStorage.setItem('tabColors'+this_tab_id, "red");
 	}else{
