@@ -8,12 +8,13 @@
         "scripts": ["background.js", "background1.js"],
         "persistent": true
     },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["jquery-3.1.1.min.js", "content.js", "url-checker.js"]
-        }
-    ],
+   "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["jquery-3.1.1.min.js", "content.js", "url-checker.js"]
+    }
+],
+
     "icons": {
         "48": "/icon/red(32).png",
         "128": "/icon/red(128).png"
