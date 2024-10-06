@@ -9,7 +9,6 @@ function updateBackground(){
 function storeWhitelist(domain_string, ips, manual, callback){
 	var validInput = true;
 	
-	//valid ip entry
 	ips = ips.replace(/ /g,'').replace(/\|/g,'');
 	var ip_array = ips.split(",");
 	for (var i = 0; i < ip_array.length; i++){
@@ -62,14 +61,11 @@ function storeWhitelist(domain_string, ips, manual, callback){
 						var input_ips = ips.split(",");
 						var stored_ips = allowed_ips_array[url_pointer].split(",");
 						console.log("stored_ips: "+stored_ips);
-						//prevent duplicate ip addresses or alternative ones
 						for (var q = 0; q < stored_ips.length; q++){
 							for (var y = 0; y < input_ips.length; y++){
 								var i = input_ips[y];
 								var s = stored_ips[q].replace(/\|/g,'');
 								console.log("input ip"+i+" stored:"+s);
-								//i == "!"+s - i is negative version of already stored ip
-								//"!"+i == s - i is non negative version of already stored ip
 								if(i == s || i == "!"+s || "!"+i == s){
 									console.log("before: "+stored_ips);
 									stored_ips.splice(stored_ips.indexOf(s), 1);
@@ -155,6 +151,6 @@ function validURL(str) {
   '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
   '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
   '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-  '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  '(\\#[-a-z\\d_]*)?$','i'); 
   return pattern.test(str);
 }

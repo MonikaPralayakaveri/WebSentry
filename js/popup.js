@@ -52,7 +52,6 @@ function setUpPopup(){
 	xmlhttp.send();
 }
 
-// Add event listener for the Add to Blacklist button
 document.getElementById('addButton').addEventListener('click', function() {
     const url = document.getElementById('urlInput').value;
     if (url) {
