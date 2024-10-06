@@ -19,7 +19,6 @@ function storeURL(domainOnly, whitelist){
 					storeWhitelist(url, "!"+ip, false, null);
 				}
 				
-				
 				chrome.runtime.sendMessage({type: "refresh"}, function(response) {
 				  return true;
 				});
@@ -34,7 +33,6 @@ function storeURL(domainOnly, whitelist){
 	setTimeout(function(){
 		window.close();
 	},1000);
-	
 }
 
 function setUpPopup(){
@@ -54,6 +52,25 @@ function setUpPopup(){
 	xmlhttp.send();
 }
 
+// Add event listener for the Add to Blacklist button
+document.getElementById('addButton').addEventListener('click', function() {
+    const url = document.getElementById('urlInput').value;
+    if (url) {
+        chrome.storage.local.get('blacklist', (data) => {
+            let blacklist = data.blacklist || [];
+            if (!blacklist.includes(url)) {
+                blacklist.push(url);
+                chrome.storage.local.set({ blacklist });
+                alert('URL added to blacklist!');
+            } else {
+                alert('This URL is already blacklisted.');
+            }
+        });
+    } else {
+        alert('Please enter a valid URL.');
+    }
+}, false);
+
 document.getElementById("bl_domain").addEventListener("click", function(){
 	storeURL(true, true);
 }, false);
@@ -65,7 +82,6 @@ document.getElementById("wl_domain").addEventListener("click", function(){
 document.getElementById("rules").addEventListener("click", function(){
 	chrome.runtime.openOptionsPage();
 }, false);
-
 
 window.onload = function(){
 	setUpPopup();

@@ -1,3 +1,11 @@
+chrome.storage.local.get('blacklist', (data) => {
+    const blacklist = data.blacklist || [];
+    if (blacklist.includes(window.location.href)) {
+        alert("This site is blacklisted!");
+        // Optionally, you can redirect the user or block content
+    }
+});
+
 var testdata;
 var prediction;
 
